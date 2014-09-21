@@ -1,0 +1,55 @@
+{
+  "name": "bookshelf",
+  "version": "0.0.0",
+  "description": "simple ebook manager",
+  "author": "Timo Keßler",
+  "license": "BSD",
+  "private": true,
+  "maintainers": [
+    {
+      "name": "Timo Kessler",
+      "email": "timflex@gmx.de"
+    }
+  ],
+  "main": "",
+  "directories": {
+    "test": "test",
+    "src": "src"
+  },
+  "scripts": {
+    "build": "gulpfile.js build",
+    "test": "gulpfile.js test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^1.3.3",
+    "gulp": "^3.8.7",
+    "gulp-clean": "^0.3.1",
+    "gulp-help": "^0.1.11",
+    "gulp-jshint": "^1.8.4",
+    "gulp-minify-html": "^0.1.4",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-protractor": "0.0.11",
+    "gulp-uglify": "^0.3.1",
+    "gulp-usemin": "^0.3.7",
+    "gulp-rev": "^1.0.0",
+    "gulp-rimraf": "^0.1.0",
+    "jshint-stylish": "^0.4.0",
+    "karma": "^0.12.22",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "^0.2.6",
+    "karma-jasmine": "^0.1.5",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "phantomjs": "^1.9.7-15",
+    "protractor": "^1.1.1"
+  },
+  "keywords": [
+    "ebooks",
+    "library",
+    "angular"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
