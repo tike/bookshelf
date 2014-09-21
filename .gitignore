@@ -1,0 +1,9 @@
+# Backend ignores go here
+*/cover.out
+
+
+# Frontend ignores go here
+node_modules
+src/bower_components
+dist
+coverage
