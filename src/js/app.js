@@ -4,6 +4,7 @@ angular
   .module('bookshelf',[
     'ngRoute',
     'ui.bootstrap',
+    'ngDraggable',
   ])
   .config(['$routeProvider', function($routeProvider){
     $routeProvider

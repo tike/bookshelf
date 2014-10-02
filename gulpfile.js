@@ -100,7 +100,7 @@ var cnf = {
       scrollThrottle: 0,            // [ int ]: only send scroll events every n milliseconds
       minify: false,                // [ true | false ]: (Don't) minify the client-side JS
       notify: false,                // [ true | false ]: (Don't) show any notifications in the browser. 
-      injectChanges: true,          // [ true | false ]: (Don't) try to inject. false -> just do a page refresh
+      injectChanges: false,          // [ true | false ]: (Don't) try to inject. false -> just do a page refresh
       codeSync: true,               // [ true | false ]: (Don't) send any file-change events to browsers
       timestamps: false,            // [ true | false ]: (Don't) append timestamps to injected files
       

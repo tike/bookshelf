@@ -11,9 +11,6 @@ angular.module('bookshelf')
         url: '/api/search',  
       };
     }
-    
-    // Stores the found items after successfull search
-    var foundItems = [];
 
     // Public API here
     return {
@@ -27,7 +24,7 @@ angular.module('bookshelf')
         $http(conf).
         success(function(data, status, headers, config){
           $log.debug('SeSvc: success', status, data, headers(), config);
-          defered.resolve(data)
+          defered.resolve(data);
         }).
         error(function(data, status, headers){
           $log.error('SeSvc: search error', data, status, headers());
