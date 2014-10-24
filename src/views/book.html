@@ -1,0 +1,80 @@
+﻿<ng-include src="'/views/partials/siteHeader.html'"></ng-include>
+
+<div class="col-md-12">
+<form role="form">
+	<div class="row">
+		<div class="form-group col-md-6">
+			<label for="titleInput">title</label>
+			<input type="text" class="form-control" id="titleInput" placeholder="Enter title" value="{{ book.title }}">
+		</div>
+	
+		<div class="form-group col-md-6">
+			<label for="subtitleInput">subtitle</label>
+			<input type="text" class="form-control" id="subtitleInput" placeholder="Enter subtitle" value="{{ book.subtitle }}">
+		</div>
+	</div>
+	
+	<div class="row" ng-repeat="author in book.authors">
+		<div class="form-group col-md-4" ng-repeat="(field, value) in author">
+			<label for="{{ field }}Input">{{ field }}</label>
+			<input type="text" class="form-control" id="{{ field }}Input" placeholder="{{ field }}" value="{{ value }}">
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-md-12">
+			<label for="descInput">description</label>
+			<textarea class="form-control" id="descInput" placeholder="Enter description" rows="5">{{ book.description }}</textarea>
+		</div>
+	</div>
+		
+	<div class="row">
+		<div class="form-group col-md-3">
+			<label for="publisherInput">publisher</label>
+			<input type="text" class="form-control" id="authorInput" placeholder="" value="{{ book.publisher }}">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="isbmInput">isbn</label>
+			<input type="text" class="form-control" id="isbnInput" placeholder="isbn" value="{{ book.isbn }}">
+		</div>
+		<div class="form-group col-md-1">
+			<label for="editionInput">edition</label>
+			<input type="text" class="form-control" id="editionInput" placeholder="enter book's edition" value="{{ book.edition }}">
+		</div>
+		<div class="form-group col-md-1">
+			<label for="yearInput">year</label>
+			<input type="text" class="form-control" id="yearInput" placeholder="year" value="{{ book.year }}">
+		</div>
+		<div class="form-group col-md-1">
+			<label for="readInput">read</label>
+			<input type="text" class="form-control" id="readInput" placeholder="read" value="{{ book.status.read }}">
+		</div>
+		<div class="form-group col-md-1">
+			<label for="reviewedInput">reviewed</label>
+			<input type="text" class="form-control" id="reviewedInput" placeholder="reviewed" value="{{ book.status.reviewed }}">
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-md-3">
+			<label for="sourceInput">source</label>
+			<input type="text" class="form-control" id="sourceInput" placeholder="source" value="{{ book.source.name }}">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="srcIdInput">id</label>
+			<input type="text" class="form-control" id="srcIdInput" placeholder="id" value="{{ book.source.id }}">
+		</div>
+		<div class="form-group col-md-6">
+			<label for="urlInput">url</label>
+			<input type="text" class="form-control" id="urlInput" placeholder="url" value="{{ book.source.url }}">
+		</div>
+	</div>
+	
+	<div class="row">
+		<button class="btn btn-default col-md-offset-10 col-md-1">submit</button>
+	</div>
+</form>
+</div>
+
+
+<ng-include src="'/views/partials/siteFooter.html'"></ng-include>

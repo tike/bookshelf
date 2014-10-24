@@ -8,10 +8,13 @@ angular
   ])
   .config(['$routeProvider', function($routeProvider){
     $routeProvider
+      .when('/book/:id/edit',{
+        templateUrl: 'views/book.html',
+        controller: 'BookCtrl',
+      })
       .when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
-        OpenToPublic: true,
       })
       .otherwise({
         redirectTo: '/'
