@@ -43,7 +43,7 @@
 				<td ng-class="{error: book.status.read === 0, info: book.status.read === 1, success: book.status.read === 2}">{{ book.format.pages }}</td>
 				<td>
 					<span class="glyphicon glyphicon-star-empty"></span>
-					<span class="glyphicon glyphicon-pencil"></span>
+					<a href="/#/book/{{ book.id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
 					<span class="glyphicon glyphicon-tag"></span> 
 				</td>
 			</tr>
