@@ -1,16 +1,18 @@
 ﻿<ng-include src="'/views/partials/siteHeader.html'"></ng-include>
 
 <div class="col-md-12">
-<form role="form">
+<form name="form" class="form" role="form" novaildate>
 	<div class="row">
-		<div class="form-group col-md-6">
-			<label for="titleInput">title</label>
-			<input type="text" class="form-control" id="titleInput" placeholder="Enter title" value="{{ book.title }}">
-		</div>
+		<bs-form-group class="col-md-6" bs-input="form.title" bs-label="'title'">
+			<input id="title" class="form-control"
+					type="text" name="title"
+					required
+					placeholder="Enter title" value="{{ book.title }}">
+		</bs-form-group>
 	
 		<div class="form-group col-md-6">
 			<label for="subtitleInput">subtitle</label>
-			<input type="text" class="form-control" id="subtitleInput" placeholder="Enter subtitle" value="{{ book.subtitle }}">
+			<input class="form-control" id="subtitleInput" placeholder="Enter subtitle" value="{{ book.subtitle }}">
 		</div>
 	</div>
 	
