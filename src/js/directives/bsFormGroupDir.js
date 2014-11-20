@@ -13,15 +13,12 @@ directive('bsFormGroup', function($log){
       label: '=bsLabel',
     },
     template: '<div id="input.$name" class="form-group" ng-class="{' +
-                  "'has-error': input.$dirty && input.$invalid," +
-                  "'has-feedback\': input.$dirty && input.$invalid," +
-                  "'has-success': input.$dirty && input.$valid," +
+                  "'has-error': input.$touched && input.$invalid," +
+                  "'has-feedback\': input.$touched && input.$invalid," +
+                  "'has-success': input.$touched && input.$valid," +
                 '}">' +
                 '<label for="input.$name">{{ label }}</label>' +
                 '<div ng-transclude></div>' +
               '</div>',
-    link: function(scope, el, atr, formCtrl){
-      $log.debug(scope);
-    },
   };
 });
