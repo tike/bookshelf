@@ -23,7 +23,7 @@ var gulp = require('gulp');
   webdriverUpdate = require('gulp-protractor').webdriver_update,         // jshint ignore:line
   
 // DEPLOYMENT DEPENDENCIES
-  rimraf = require('gulp-rimraf'),
+  del = require('del'),
   uglify = require('gulp-uglify'),
   minifyHtml = require('gulp-minify-html'),
   minifyCss = require('gulp-minify-css'),
@@ -272,7 +272,7 @@ gulp.task('test', 'run end to end and unit tests', ['test.unit','test.e2e']);
  */
 gulp.task('dist.clean', false, function () {
     return gulp.src(dist, {read: false})
-        .pipe(rimraf());
+        .pipe(del());
 });
 
 gulp.task('dist.images', false, ['dist.clean'], function(){
