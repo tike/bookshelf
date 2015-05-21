@@ -85,17 +85,17 @@ var cnf = {
       port: 9000,                   // [ int ]: port for browser-sync server 
       //https: true,                // [ true | undefined ]: (Don't) serve https
       
-      server: {
+      /*server: {
         baseDir: [ src ],           // [ Array of strings | string ]: serve files from these director(y|ies)
         //directory: true,          // [ true | false ]: (Don't) allow directory listings (overrides index.html resolution for host/xyz/ urls)
-      },
+      },*/
       //proxy: 'local.dev',         // [ string ]: Using a vhost or url
-      //proxy: 'localhost:8000',    // [ string ]: Using a localhost address with a port
+      proxy: 'localhost:8000',    // [ string ]: Using a localhost address with a port
       //proxy: 'localhost/site1',   // [ string ]: Using localhost sub directories
     
       browser: ['firefox'],         // [ Array of strings | string ]: browsers to open, e.g. [ 'google chrome', 'firefox' ]
       open: true,                   // [ true | false ]: (Don't) open browsers upon start [ true | false | 'external' | 'tunnel' ]
-      startPath: '/',               // [ null | string ]: Open the first browser window at e.g. "/info.php"
+      startPath: '/index.html#/',     // [ null | string ]: Open the first browser window at e.g. "/info.php"
       scrollProportionally: false,  // [ true | false ]: (Don't) sync viewports to TOP position
       scrollThrottle: 0,            // [ int ]: only send scroll events every n milliseconds
       minify: false,                // [ true | false ]: (Don't) minify the client-side JS
@@ -104,7 +104,7 @@ var cnf = {
       codeSync: true,               // [ true | false ]: (Don't) send any file-change events to browsers
       timestamps: false,            // [ true | false ]: (Don't) append timestamps to injected files
       
-      logLevel: 'debug',            // [ 'debug' | 'info' | 'silent' ]: loglevel
+      logLevel: 'info',            // [ 'debug' | 'info' | 'silent' ]: loglevel
       logConnections: true,         // [ true | false ]: (Don't) log connections
       logFileChanges: true,         // [ true | false ]: (Don't) log file changes
     },
