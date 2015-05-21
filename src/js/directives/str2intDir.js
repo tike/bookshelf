@@ -10,10 +10,6 @@ directive('str2int', function(){
       ngModel.$parsers.push(function(value){
         return parseInt(value, 10);
       });
-/*      ngModel.$formatters.push(function(value){
-        return value ? value+"": "";
-      });
-*/
     }
-  }
+  };
 });

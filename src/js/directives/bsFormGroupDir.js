@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookshelf').
-directive('bsFormGroup', function($log){
+directive('bsFormGroup', function(){
   return {
     restrict: 'E',
     require: '^form',
@@ -12,6 +12,7 @@ directive('bsFormGroup', function($log){
       input: '=bsInput',
       label: '=bsLabel',
     },
+    // jshint ignore:start
     template: '<div id="input.$name" class="form-group" ng-class="{' +
                   "'has-error': input.$touched && input.$invalid," +
                   "'has-feedback\': input.$touched && input.$invalid," +
@@ -20,5 +21,6 @@ directive('bsFormGroup', function($log){
                 '<label for="input.$name">{{ label }}</label>' +
                 '<div ng-transclude></div>' +
               '</div>',
+    // jshint ignore:end
   };
 });

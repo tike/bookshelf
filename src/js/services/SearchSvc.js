@@ -2,21 +2,12 @@
 
 angular.module('bookshelf')
   .factory('SearchSvc', ['$http', '$log', '$q', function ($http, $log, $q) {
-    // Service logic
-    // ...
-    // The request config to be used for the query
-    function getHttpConf(){
-      return {
-        method: 'GET',
-        url: '/api/search',  
-      };
-    }
     
     function doRequest(reqConfig){
       var defered = $q.defer();        
         $http(reqConfig).
         success(function(data, status, headers, config){
-          $log.debug('SeSvc.doRequest: success', status, data, headers(), config);
+          $log.debug('SeSvc.doRequest: success', status, data,headers(), config);
           defered.resolve(data);
         }).
         error(function(data, status, headers){

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookshelf')
-  .factory('TagFilterSvc', ['$log', function($log){
+  .factory('TagFilterSvc', ['$log', function(){
     
     var tags = [];
     

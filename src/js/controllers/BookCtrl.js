@@ -21,7 +21,9 @@ angular.module('bookshelf')
   }
   
   $scope.submit = function(book, form){
-    if (!form.$valid) return;
+    if (!form.$valid) {
+      return;
+    }
     SearchSvc.upSert(book);
   };
 }]);
