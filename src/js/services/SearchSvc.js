@@ -47,5 +47,12 @@ angular.module('bookshelf')
           url: '/api/book/'.concat(id),
         });
       },
+      upSert: function(book){
+        return doRequest({
+          method: 'PUT',
+          url: '/api/book/'.concat(book.id),
+          data: book,
+        });
+      },
     };
   }]);

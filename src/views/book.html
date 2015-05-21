@@ -1,13 +1,12 @@
 ﻿<ng-include src="'/views/partials/siteHeader.html'"></ng-include>
 
 <div class="col-md-12">
-<form name="form" class="form" ng-model-options="{ updateOn: 'blur' }" novaildate>
+<form name="form" class="form" ng-model-options="{ updateOn: 'blur' }" ng-submit="submit(book, form)" no-vaildate>
 	<div class="row">
 		<bs-form-group class="col-md-6" bs-input="form.title" bs-label="'Title:'">
 			<input id="title" class="form-control"
 					type="text" name="title"
 					ng-model="book.title"
-					required
 					placeholder="Enter title">
 		</bs-form-group>
 	
@@ -15,18 +14,10 @@
 			<input id="subtitle" class="form-control"
 					type="text" name="subtitle"
 					ng-model="book.subtitle"
-					required
 					placeholder="Enter subtitle">
 		</bs-form-group>
 	</div>
-	
-	<div class="row" ng-repeat="author in book.authors">
-		<div class="form-group col-md-4" ng-repeat="(field, value) in author">
-			<label for="{{ field }}Input">{{ field }}</label>
-			<input type="text" class="form-control" id="{{ field }}Input" placeholder="{{ field }}" value="{{ value }}">
-		</div>
-	</div>
-	
+		
 	<div class="row">
 		<bs-form-group class="col-md-12" bs-input="form.desc" bs-label="'Description'">
 			<textarea id="desc" class="form-control"
@@ -34,53 +25,54 @@
 			placeholder="Enter description" rows="5"></textarea>
 		</bs-form-group>
 	</div>
+	
+	<div class="row" ng-repeat="author in book.authors">
+		<div class="form-group col-md-2" ng-repeat="(field, value) in author">
+			<label for="{{ field }}Input">{{ field }}</label>
+			<input type="text" class="form-control" id="{{ field }}Input" placeholder="{{ field }}" value="{{ value }}">
+		</div>
+	</div>
 		
 	<div class="row">
 		<bs-form-group class="col-md-3" bs-input="form.pub" bs-label="'Publisher'">
 			<input id="pub" class="form-control"
 					type="text" name="pub"
 					ng-model="book.publisher"
-					required
 					placeholder="Enter publisher">
 		</bs-form-group>
 		
 		<bs-form-group class="col-md-3" bs-input="form.isbn" bs-label="'ISBN'">
 		<input id="isbn" class="form-control"
-					type="text" name="isbn"
+					type="number" name="isbn"
 					ng-model="book.isbn"
-					required
 					placeholder="Enter ISBN">
 		</bs-form-group>
 		
 		<bs-form-group class="col-md-1" bs-input="form.edition" bs-label="'Edition'">
 			<input id="edition" class="form-control"
-					type="text" name="edition"
+					type="number" name="edition"
 					ng-model="book.edition"
-					required
 					placeholder="Enter ">
 		</bs-form-group>
 		
-		<bs-form-group class="col-md-1" bs-input="form.year" bs-label="'Year'">
+		<bs-form-group class="col-md-2" bs-input="form.year" bs-label="'Year'">
 			<input id="year" class="form-control"
-					type="text" name="year"
+					type="number" name="year"
 					ng-model="book.year"
-					required
 					placeholder="Enter year">
 		</bs-form-group>
 		
 		<bs-form-group class="col-md-1" bs-input="form.stread" bs-label="'Read'">
 			<input id="stread" class="form-control"
-					type="text" name="stread"
+					type="number" name="stread"
 					ng-model="book.status.read"
-					required
 					placeholder="Enter read">
 		</bs-form-group>
 		
 		<bs-form-group class="col-md-1" bs-input="form.streviewed" bs-label="'Rev'">
 			<input id="streviewed" class="form-control"
-					type="text" name="streviewed"
+					type="checkbox" name="streviewed"
 					ng-model="book.status.reviewed"
-					required
 					placeholder="Enter streviewed">
 		</bs-form-group>
 		
@@ -91,15 +83,13 @@
 			<input id="srcname" class="form-control"
 					type="text" name="srcname"
 					ng-model="book.source.name"
-					required
 					placeholder="Enter srcname">
 		</bs-form-group>
 		
 		<bs-form-group class="col-md-3" bs-input="form.srcid" bs-label="'ID'">
 			<input id="srcid" class="form-control"
-					type="text" name="srcid"
+					type="number" name="srcid"
 					ng-model="book.source.id"
-					required
 					placeholder="Enter srcid">
 		</bs-form-group>
 		
@@ -107,7 +97,6 @@
 			<input id="srcurl" class="form-control"
 					type="text" name="srcurl"
 					ng-model="book.source.url"
-					required
 					placeholder="Enter srcurl">
 		</bs-form-group>
 	</div>
