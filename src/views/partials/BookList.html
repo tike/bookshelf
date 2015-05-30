@@ -33,16 +33,18 @@
 			</thead>
 			<tr ng-repeat="book in books  | orderBy: orderByField:reverseSort">
 				<td>{{ $index + 1 }}</td>
-				<td ng-class="book.status.reviewed ? 'success' : 'error' ">{{ book.year }}</td>
+				<td ng-class="book.status.reviewed ? 'success' : 'error' ">{{ ::book.year }}</td>
 				<td ng-class="book.format.watermarked ? 'error': 'success'">
-					<b>{{ book.title }}</b>
+					<b>{{ ::book.title }}</b>
 				</td>
-				<td>{{ book.subtitle }}</td>
-				<td ng-class="{error: book.status.read === 0, info: book.status.read === 1, success: book.status.read === 2}">{{ book.format.pages }}</td>
+				<td>{{ ::book.subtitle }}</td>
+				<td ng-class="{error: book.status.read === 0, info: book.status.read === 1, success: book.status.read === 2}">{{ ::book.format.pages }}</td>
 				<td>
-					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon"
+					ng-class="book.favorite ? 'glyphicon-star' : 'glyphicon-star-empty'"
+					ng-click="book.favorite = !book.favorite"></span>
 					<a href="#/book/{{ book.id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
-					<span class="glyphicon glyphicon-tag"></span> 
+					<span class="glyphicon" ng-class="book.tags? 'glyphicon-tag': 'glyphicon-tags'" ng-click="addTags(book)"></span> 
 				</td>
 			</tr>
 		</table>

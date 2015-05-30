@@ -3,20 +3,20 @@
 		<div class="list-group-item-heading">
 			<div class="row">
 				<div class="col-md-8">
-					<div class="title">{{ book.title }}</div>
-					<div class="subtitle">{{ book.subtitle }}</div>
+					<div class="title">{{ ::book.title }}</div>
+					<div class="subtitle">{{ ::book.subtitle }}</div>
 				</div>
 				<div class="col-md-4">
 					<span ng-repeat="author in book.authors">
-						<span class="author">{{ author.firstname }} {{ author.lastname }}</span>
+						<span class="author">{{ ::author.firstname }} {{ ::author.lastname }}</span>
 					</span>
-					<span class="year">{{ book.year }}</span>
+					<span class="year">{{ ::book.year }}</span>
 				</div>
 			</div>
 		</div>
 		
 		<div class="list-group-item-text">
-			<p>{{ book.description }}</p>
+			<p>{{ ::book.description }}</p>
 		</div>
 	</a>
 </div>

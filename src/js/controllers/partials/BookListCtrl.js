@@ -2,7 +2,7 @@
 
 angular.module('bookshelf')
   .controller('BookListCtrl', ['$scope', '$log', 'SearchSvc', function ($scope, $log, SearchSvc) {
-    $scope.query = 'foobar';
+    $scope.query = 'Hadoop';
     
     $scope.reviewed = 0;
     $scope.read = 0;
@@ -30,7 +30,13 @@ angular.module('bookshelf')
       },
       function(data){
         $log.error('SearchSvc', data);
-      });
+      }
+    );
+    
+    $scope.addTags = function(book){
+      console.log('book tags:', book.tags);
+      book.tags = book.tags && book.tags.length ? book.tags.push('bar') : ['foo'];
+    };
 }]);
 
 
