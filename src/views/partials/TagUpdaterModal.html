@@ -1,0 +1,19 @@
+<div class="modal-header">
+	<h3 class="modal-title">Manage tags...</h3>
+</div>
+
+<div class="modal-body">
+	<form class="form" name="form" ng-submit="addTag(newTag, form)" novalidate>
+		<input type="text" class="form-control" ng-model="newTag" placeholder="add a tag">
+	</form>
+	<ul>
+		<li ng-repeat="(idx, tag) in tags"
+		>{{ ::tag }} <span class="glyphicon glyphicon-remove" ng-click="delete(idx, tag)"></span>
+		</li>
+	</ul>
+</div>
+	
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="$dismiss()">cancel</button>
+	<button class="btn btn-primary" ng-click="$close(tags)">save</button>
+</div>

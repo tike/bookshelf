@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookshelf')
-  .controller('BookListCtrl', ['$scope', '$log', 'SearchSvc', function ($scope, $log, SearchSvc) {
+  .controller('BookListCtrl', ['$scope', '$log', '$modal', 'SearchSvc', function ($scope, $log, $modal, SearchSvc) {
     $scope.query = 'Hadoop';
     
     $scope.reviewed = 0;
@@ -33,9 +33,25 @@ angular.module('bookshelf')
       }
     );
     
+    
+    
     $scope.addTags = function(book){
       console.log('book tags:', book.tags);
-      book.tags = book.tags && book.tags.length ? book.tags.push('bar') : ['foo'];
+      if (!book.tags){
+        book.tags = [];
+      }
+      $modal.open({
+        controller: 'TagUpdaterModalCtrl',
+        templateUrl: '/views/partials/TagUpdaterModal.html',
+        resolve: {
+          tags: function(){
+            return angular.copy(book.tags);
+          }
+        }
+      }).result.then(function(tags){
+       book.tags = tags;
+       SearchSvc.upSert(book); 
+      });
     };
 }]);
 
