@@ -4,11 +4,12 @@ angular.module('bookshelf')
   .controller('BookListCtrl', ['$scope', '$log', '$modal', 'SearchSvc', function ($scope, $log, $modal, SearchSvc) {
     // keep num active tags to simplifiy/shortcut filtering in $scope.byTags
     var activeTags = 0;
+    var status = {};
     
     // start init sequence
     $scope.orderByField = ['-year', 'pages' ];
     $scope.reverseSort = false;
-    $scope.filterCond = {};
+    $scope.status = status;
 
     SearchSvc.search({ 'title': 'Hadoop' }).then(
       function(resp){
@@ -19,12 +20,7 @@ angular.module('bookshelf')
       }
     );
     
-    // end init sequence ...
-    
-    $scope.star = function(book){
-      book.status ? book.status.starred = !book.status.starred : book.status = {starred: true};
-      SearchSvc.upSert(book);
-    };
+    // end init sequence ... 
     
     $scope.checkTags = function(tag){
       tag.active = !tag.active;
@@ -43,6 +39,31 @@ angular.module('bookshelf')
           return true;
         }
       }
+    };
+    
+    $scope.toggle  = function(key){
+      if (status[key] === undefined){
+        status[key] = true;
+      } else if (status[key] === true){
+        status[key] = false;
+      } else if (status[key] === false){
+        delete status[key];
+      }
+    };
+    
+    $scope.toggleRead = function(){
+      if (status.read === undefined){
+        status.read = 0;
+      } else if (status.read === 0){
+        status.read = 1;
+      } else if (status.read === 1){
+        delete status.read;
+      }
+    };
+    
+    $scope.star = function(book){
+      book.status ? book.status.starred = !book.status.starred : book.status = {starred: true};
+      SearchSvc.upSert(book);
     };
     
     $scope.addTags = function(book){
